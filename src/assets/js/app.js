@@ -38,7 +38,7 @@ document.querySelectorAll('.toggler').forEach(item => {
                     e.style.height = height;
                 }, 0);
             } else {
-                event.target.classList.toggle('active');          
+                event.target.classList.remove('active');          
                 e.style.height = '0px';   
                 e.addEventListener('transitionend', 
                     function () {
