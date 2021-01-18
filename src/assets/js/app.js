@@ -60,7 +60,6 @@ document.querySelectorAll('.toggler').forEach(item => {
     }
 )});
         
-
 // Count
 
         let dec = document.querySelectorAll('.product-item__button-decrease');
