@@ -241,7 +241,7 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
   border-radius: 0 0 30px 30px;
 }
-.product-item__dropdown-list ul:not(.active) {
+.product-item__dropdown-list ul:not(.visible) {
   display: none;
 }
 .product-item__dropdown-list ul::-webkit-scrollbar {
@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   background-color: #E0E9F2;
 }
-.product-item__dropdown-list ul.active {
+.product-item__dropdown-list ul.visible {
   background-color: #fff;
   overflow: auto;
   display: block;
@@ -264,13 +264,13 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: height 0.25s ease;
   transition: height 0.25s ease;
 }
-.product-item__dropdown-list ul.active li {
+.product-item__dropdown-list ul.visible li {
   list-style-type: none;
   height: 24px;
   line-height: 24px;
   vertical-align: center;
 }
-.product-item__dropdown-list ul.active li:hover {
+.product-item__dropdown-list ul.visible li:hover {
   background-color: #F3F8FC;
   max-width: 241px;
   margin-left: -20px;

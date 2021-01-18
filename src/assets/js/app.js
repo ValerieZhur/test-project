@@ -24,39 +24,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 //Dropdown menu
 
-    document.querySelectorAll('.toggler').forEach(item => {
-        item.addEventListener('click',  function (event) {
-            event.preventDefault();
-            this.classList.toggle('active');
-            dropdownList.forEach(function(e) { 
-               
-                if (!e.classList.contains('active')) {
-                    e.classList.add('active');
-                    e.style.height = 'auto';
-        
-                    let height = e.clientHeight + 'px';
-        
-                    e.style.height = '0px';
-        
-                    setTimeout(function () {
-                        e.style.height = height;
-                    }, 0);
-                } else {
-                    e.style.height = '0px';
-        
-                    e.addEventListener('transitionend', 
-                        function () {
-                            e.classList.remove('active');
-                            
-                        }, {
-                            once: true
-                    });
-                }
-
-            });
-            
+document.querySelectorAll('.toggler').forEach(item => {
+    item.addEventListener('click',  function (event) {  
+        this.classList.add('active');    
+        if(event.target.classList.contains('active')) {
+        event.preventDefault();
+        // let drop = event.target.querySelector('.dropdown-list');     
+        let drop = event.target.querySelectorAll('.dropdown-list');     
+        drop.forEach(function(e) { 
+            if (!e.classList.contains('visible')) {
+                e.classList.add('visible');
+                e.style.height = 'auto';
+    
+                let height = e.clientHeight + 'px';
+    
+                e.style.height = '0px';
+    
+                setTimeout(function () {
+                    e.style.height = height;
+                }, 0);
+            } else {
+                e.style.height = '0px';
+    
+                e.addEventListener('transitionend', 
+                    function () {
+                        e.classList.remove('visible');
+                        
+                    }, {
+                        once: true
+                });
+                
+            }
+          });     
         }
-    )});
+    }
+)});
         
 
 // Count

@@ -256,7 +256,7 @@ body {
         max-height: 124px;
         list-style: none;
         border-radius: 0 0 30px 30px;
-        &:not(.active) {
+        &:not(.visible) {
             display: none;
         }
         &::-webkit-scrollbar {
@@ -269,7 +269,7 @@ body {
             background-color: #E0E9F2;
           }
           
-        &.active {
+        &.visible {
             background-color: $white;
             overflow: auto;
             display: block;
