@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
-    let dropdownList = document.querySelectorAll('.dropdown-list');
     let badgePurchase = document.querySelectorAll('.product-item__badge-purchase');
     
     //add class .active  for class .product-item__badge-purchase
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 this.removeAttribute('disabled');
         }else {
             this.setAttribute('disabled', 'true');
-
         }
     })});
 
@@ -26,36 +24,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 document.querySelectorAll('.toggler').forEach(item => {
     item.addEventListener('click',  function (event) {  
-        this.classList.add('active');    
+        this.classList.add('active');          
         if(event.target.classList.contains('active')) {
-        event.preventDefault();
-        // let drop = event.target.querySelector('.dropdown-list');     
+        event.preventDefault();   
         let drop = event.target.querySelectorAll('.dropdown-list');     
         drop.forEach(function(e) { 
             if (!e.classList.contains('visible')) {
                 e.classList.add('visible');
-                e.style.height = 'auto';
-    
+                e.style.height = 'auto'; 
                 let height = e.clientHeight + 'px';
-    
-                e.style.height = '0px';
-    
+                e.style.height = '0px';     
                 setTimeout(function () {
                     e.style.height = height;
                 }, 0);
             } else {
-                e.style.height = '0px';
-    
+                event.target.classList.toggle('active');          
+                e.style.height = '0px';   
                 e.addEventListener('transitionend', 
                     function () {
-                        e.classList.remove('visible');
-                        
+                        e.classList.remove('visible');                   
                     }, {
                         once: true
-                });
-                
+                });          
             }
-          });     
+          });
+
         }
     }
 )});
@@ -75,18 +68,13 @@ document.querySelectorAll('.toggler').forEach(item => {
                     --e.target.parentElement.querySelector('.product-item__count-input').value;
                         }
                 });
-    
-
-                });
-                
+            });             
         });
 
         inc.forEach(elem => { 
-            elem.addEventListener('click', function(e) {
-           
+            elem.addEventListener('click', function(e) {    
                 ++e.target.parentElement.querySelector('.product-item__count-input').value;            
             });
-
         });
 
      
